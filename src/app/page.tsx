@@ -12,7 +12,6 @@ import {
   Menu,
   Rocket,
   Sparkles,
-  Star,
   X,
   Bot,
   CalendarClock,
@@ -32,13 +31,6 @@ type Service = {
   title: string;
   desc: string;
   bullets: string[];
-};
-
-type Testimonial = {
-  name: string;
-  role: string;
-  quote: string;
-  stars: number;
 };
 
 type SectionProps = { id?: string; children: ReactNode; className?: string };
@@ -89,30 +81,6 @@ const SERVICES: Service[] = [
     title: "Optimization & Growth",
     desc: "Turn data into decisions, then into revenue—with continuous AI-powered improvements.",
     bullets: ["Analytics & tracking", "A/B testing & CRO", "SEO & performance tuning"],
-  },
-];
-
-const TESTIMONIALS: Testimonial[] = [
-  {
-    name: "Elena Prieto",
-    role: "CMO, Orbit Finance",
-    quote:
-      "Our support inbox dropped by half after launching the AI assistant. The site literally sells and explains for us.",
-    stars: 5,
-  },
-  {
-    name: "Marcus Young",
-    role: "Founder, NovaTech",
-    quote:
-      "Demos, signups, follow-ups… they’re all automated now. ShiftSense Studio turned our website into a full-time sales rep.",
-    stars: 5,
-  },
-  {
-    name: "Sofia Reyes",
-    role: "Owner, Café Aurora",
-    quote:
-      "Customers book tables and place orders automatically. We focus on the coffee, the site handles the rest.",
-    stars: 5,
   },
 ];
 
@@ -835,7 +803,7 @@ function Footer() {
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-50">
+    <div className="min-h-screen bg-neutral-950 text-neutral-50 selection:bg-indigo-500/30">
       <Header />
       <main>
         <Hero />

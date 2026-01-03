@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShiftSenseStudios",
-  description: "",
+  title: "ShiftSense Studios",
+  description: "AI-powered websites and automation.",
 };
 
 export default function RootLayout({
@@ -23,9 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // Added suppressHydrationWarning here to ignore extension-injected attributes
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-neutral-50`}
+        suppressHydrationWarning // Added here as well to fix the "bis_register" error
       >
         {children}
       </body>
