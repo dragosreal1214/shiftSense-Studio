@@ -801,11 +801,15 @@ function Footer() {
   );
 }
 
+// Find your main Page export and change the wrapper div:
 export default function Page() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-50 selection:bg-indigo-500/30">
+    // REMOVE "bg-white" and "dark:" prefixes. 
+    // Use the base colors you want everyone to see.
+    <div className="min-h-screen bg-neutral-950 text-neutral-50">
       <Header />
       <main>
+        {/* All other sections should now use bg-neutral-950 or bg-neutral-900 */}
         <Hero />
         <Services />
         <AiIdeas />

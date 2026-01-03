@@ -19,15 +19,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    // Added suppressHydrationWarning here to ignore extension-injected attributes
+    // suppressHydrationWarning prevents the extension error from crashing the app
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-neutral-50`}
-        suppressHydrationWarning // Added here as well to fix the "bis_register" error
+        suppressHydrationWarning
       >
         {children}
       </body>
