@@ -301,7 +301,7 @@ function Services() {
                 <ul className="mt-4 space-y-2 text-sm">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-2 text-neutral-700 dark:text-neutral-200">
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500" />
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500 dark:text-inherit" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -455,7 +455,7 @@ function AiIdeas() {
                 <ul className="mt-4 space-y-2 text-sm">
                   {idea.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-2 text-neutral-700 dark:text-neutral-200">
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500" />
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500 dark:text-inherit" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -583,7 +583,7 @@ function About() {
                   key={p}
                   className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-300"
                 >
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500" />
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500 dark:text-inherit" />
                   <span>{p}</span>
                 </li>
               ))}
@@ -692,7 +692,7 @@ function Contact() {
                   key={opt}
                   className="flex items-start gap-2 rounded-2xl bg-white/70 dark:bg-black/15 border border-black/10 dark:border-white/15 px-3 py-2 text-neutral-900 dark:text-neutral-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition duration-300"
                 >
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500" />
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500 dark:text-inherit" />
                   <span>{opt}</span>
                 </div>
               ))}
