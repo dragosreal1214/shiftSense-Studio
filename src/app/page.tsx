@@ -548,56 +548,6 @@ function Process() {
   );
 }
 
-function Testimonials() {
-  return (
-    <Section className="py-20 bg-neutral-50 dark:bg-neutral-950">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              What it feels like when AI takes over the busywork
-            </h2>
-            <p className="mt-2 text-neutral-600 dark:text-neutral-300 max-w-2xl">
-              Clients come for a new website. They stay because it quietly handles the work
-              they used to chase manually.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="relative overflow-hidden rounded-2xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-neutral-900/70 backdrop-blur-xl shadow-[0_0_10px_rgba(15,23,42,0.35)] hover:shadow-[0_0_26px_rgba(79,70,229,0.6)] hover:border-indigo-300/60 dark:hover:border-fuchsia-400/60 hover:-translate-y-1 transition duration-300"
-            >
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/25 via-white/5 to-transparent dark:from-white/5 dark:via-transparent dark:to-transparent" />
-              <div className="relative p-6">
-                <div
-                  className="flex items-center gap-1 text-amber-500"
-                  aria-label={`${t.stars} stars`}
-                >
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} className="size-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-200">
-                  “{t.quote}”
-                </p>
-                <div className="mt-4 text-sm font-medium">{t.name}</div>
-                <div className="text-xs text-neutral-500">{t.role}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 function About() {
   const perks = [
     "AI-first strategy on every project",
@@ -605,18 +555,31 @@ function About() {
     "Transparent, no-nonsense collaboration",
     "We own the tech, you own the results",
   ];
+
+  const techStack = [
+    { name: "React.js", icon: <Code2 className="size-5" /> },
+    { name: "Next.js", icon: <Rocket className="size-5" /> },
+    { name: "ElevenLabs", icon: <Bot className="size-5" /> },
+    { name: "MongoDB", icon: <Zap className="size-5" /> },
+  ];
+
   return (
-    <Section id="about" className="py-20">
+    <Section id="about" className="py-20 dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               We don’t just “add AI” — we design around it
             </h2>
             <p className="mt-3 text-neutral-600 dark:text-neutral-300">
               ShiftSense Studio is a small team of designers, developers, and automation
               nerds obsessed with one thing:{" "}
-              <span className="font-semibold">
+              <span className="font-semibold text-neutral-900 dark:text-neutral-100">
                 turning your website into a machine that reliably brings you business.
               </span>{" "}
               We combine crisp UX with AI, integrating the tools you already use so nothing
@@ -624,20 +587,53 @@ function About() {
             </p>
             <ul className="mt-6 grid sm:grid-cols-2 gap-3">
               {perks.map((p) => (
-                <li key={p} className="flex items.start gap-2 text-sm">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
+                <li key={p} className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-300">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-500" />
                   <span>{p}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
+
           <div className="relative">
-            <div className="aspect-[4/3] rounded-3xl border border-black/10 dark:border-white/10 shadow-xl overflow-hidden bg-gradient-to-tr from-fuchsia-600/20 to-indigo-600/20" />
-            <div className="absolute -bottom-4 -right-4 rounded-2xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 px-4 py-3 shadow transition hover:-translate-y-0.5 hover:shadow-lg">
+            {/* The Main Container Card - Matching Services/Ideas style */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="relative overflow-hidden rounded-3xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-neutral-900/70 backdrop-blur-xl shadow-[0_0_10px_rgba(15,23,42,0.35)] hover:shadow-[0_0_26px_rgba(79,70,229,0.6)] hover:border-indigo-300/60 dark:hover:border-fuchsia-400/60 hover:-translate-y-1 transition duration-300 p-8 flex flex-col items-center justify-center min-h-[320px]"
+            >
+              {/* Internal Gradient overlay matching your cards */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/25 via-white/5 to-transparent dark:from-white/5 dark:via-transparent dark:to-transparent" />
+              
+              <div className="relative z-10 w-full">
+                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400 mb-8">
+                  Powering our solutions with
+                </p>
+
+                <div className="grid grid-cols-2 gap-4">
+                  {techStack.map((tech) => (
+                    <div 
+                      key={tech.name}
+                      className="flex items-center gap-3 p-4 rounded-2xl bg-white/40 dark:bg-white/5 border border-white/40 dark:border-white/10 grayscale hover:grayscale-0 transition-all duration-300 group"
+                    >
+                      <div className="size-8 rounded-lg grid place-items-center bg-gradient-to-tr from-indigo-500/20 to-fuchsia-500/20 border border-white/40 dark:border-white/20 backdrop-blur group-hover:scale-110 transition-transform">
+                        {tech.icon}
+                      </div>
+                      <span className="font-medium text-sm text-neutral-700 dark:text-neutral-200">{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Tag - Updated to match your hover colors */}
+            <div className="absolute -bottom-4 -right-4 rounded-2xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 px-4 py-3 shadow-2xl transition hover:-translate-y-1 hover:shadow-indigo-500/20">
               <div className="flex items-center gap-2">
-                <Sparkles className="size-4" />
+                <Sparkles className="size-4 text-fuchsia-500 animate-pulse" />
                 <span className="text-sm font-medium">
-                  “Can we automate that?” is our favorite question.
+                  Our favourite question is “Can we automate that?”
                 </span>
               </div>
             </div>
@@ -659,7 +655,7 @@ function Contact() {
     const body = encodeURIComponent(
       `Hi ShiftSense Studio,%0D%0A%0D%0AMy name is ${name}.%0D%0A%0D%0A${message}%0D%0A%0D%0AContact me at: ${email}`
     );
-    window.location.href = `mailto:hello@webshift.studio?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:dragos.axinte.business@gmail.com?subject=${subject}&body=${body}`;
   };
 
   const quickOptions = [
@@ -713,10 +709,10 @@ function Contact() {
               <div className="flex items-center gap-2">
                 <Mail className="size-4" />
                 <a
-                  href="mailto:hello@webshift.studio"
+                  href="mailto:dragos.axinte.business@gmail.com"
                   className="underline underline-offset-4 hover:text-indigo-200 transition-colors"
                 >
-                  hello@webshift.studio
+                  dragos.axinte.business@gmail.com
                 </a>
               </div>
             </div>
@@ -799,23 +795,36 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-black/5 dark:border-white/10 py-10 bg-neutral-950 text-neutral-100">
+    <footer className="border-t border-black/5 dark:border-white/10 py-16 bg-neutral-950 text-neutral-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <Sparkles className="size-5" />
-            <span className="font-semibold">ShiftSense Studio</span>
-          </div>
-          <p className="text-sm text-neutral-400">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          
+          {/* Large, Bold Logo */}
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="w-32 md:w-40"
+          >
+            <Image 
+              alt="Logo" 
+              src={logo} 
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </motion.div>
+          
+          <p className="text-sm text-neutral-400 text-center md:text-left max-w-xs md:max-w-none">
             © {new Date().getFullYear()} ShiftSense Studio. AI-powered experiences, human-first
             results.
           </p>
+
           <div className="text-sm">
             <a
               href="#home"
-              className="hover:underline underline-offset-4 hover:text-indigo-200 transition-colors hover:-translate-y-0.5 inline-flex"
+              className="group hover:text-indigo-200 transition-colors inline-flex items-center gap-2"
             >
-              Back to top
+              <span className="hover:underline underline-offset-4">Back to top</span>
+              <ArrowRight className="size-4 -rotate-90 group-hover:-translate-y-1 transition-transform" />
             </a>
           </div>
         </div>
@@ -833,7 +842,6 @@ export default function Page() {
         <Services />
         <AiIdeas />
         <Process />
-        <Testimonials />
         <About />
         <Contact />
       </main>
